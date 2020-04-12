@@ -1,30 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styles from './Person.module.css';
-// import styled from 'styled-components';
 
-// const StyledDiv = styled.div`
-//     width: 60%;
-//     margin: 16px auto;
-//     border: 1px solid #eee;
-//     box-shadow: 0 2px 3px #ccc;
-//     padding: 16px;
-//     text-align: center;
-
-//     @media (min-width: 500px) {
-//         width: 450px;
-//     }
-// `;
-
-const person = (props) => {
+class Person extends Component {
+    render() {
+        console.log('[Person] rendering');
     return (
         <div className={styles.Person}>
-        {/* <StyledDiv> */}
-            <p onClick={props.click}>I'm a {props.name} and I am {props.age} years old!</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.changed} defaultValue={props.name}/>
-        {/* </StyledDiv> */}
+            <p onClick={this.props.click}>I'm a {this.props.name} and I am {this.props.age} years old!</p>
+            <p>{this.props.children}</p>
+            <input type="text" onChange={this.props.changed} defaultValue={this.props.name}/>
         </div>
     );
+    }
 }
 
-export default person;
+export default Person;
